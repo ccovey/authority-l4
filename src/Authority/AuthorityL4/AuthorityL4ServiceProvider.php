@@ -30,7 +30,7 @@ class AuthorityL4ServiceProvider extends ServiceProvider
     public function register(){
         $this->package('machuga/authority-l4');
 
-        $this->app['authority'] = $this->app->share(function($app){
+        $this->app['Authority\Authority'] = $this->app->share(function($app){
             $user = $app['auth']->user();
             $authority = new Authority($user);
             $fn = $app['config']->get('authority-l4::initialize', null);
